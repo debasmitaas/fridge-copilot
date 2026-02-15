@@ -1,0 +1,42 @@
+:root {
+    --primary: #2563eb;
+    --bg: #f3f4f6;
+    --card: #ffffff;
+}
+
+body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+
+.app-wrapper { max-width: 800px; margin: 0 auto; }
+
+header { text-align: center; margin-bottom: 2rem; }
+
+.upload-card { background: var(--card); padding: 2rem; border-radius: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+.drop-zone { 
+    display: block; border: 2px dashed #d1d5db; border-radius: 12px; 
+    padding: 40px; text-align: center; cursor: pointer; transition: 0.3s;
+}
+
+.drop-zone:hover { border-color: var(--primary); background: #eff6ff; }
+
+#preview { max-width: 100%; border-radius: 8px; margin-top: 10px; max-height: 300px; }
+
+.btn-primary { 
+    width: 100%; margin-top: 1.5rem; padding: 12px; border: none; 
+    border-radius: 8px; background: var(--primary); color: white; 
+    font-weight: 600; cursor: pointer;
+}
+
+.btn-primary:disabled { background: #9ca3af; cursor: not-allowed; }
+
+.recipe-content { background: white; margin-top: 2rem; padding: 2rem; border-radius: 16px; line-height: 1.8; }
+
+.hidden { display: none; }
+
+.spinner { 
+    width: 40px; height: 40px; border: 4px solid #f3f3f3; 
+    border-top: 4px solid var(--primary); border-radius: 50%; 
+    animation: spin 1s linear infinite; margin: 20px auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

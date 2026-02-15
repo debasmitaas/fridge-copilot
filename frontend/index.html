@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Co-Pilot | AI Recipe Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        <header>
+            <h1>Fridge Co-Pilot</h1>
+            <p>Snap a photo, get a meal plan.</p>
+        </header>
+
+        <main>
+            <div class="upload-card">
+                <input type="file" id="imageInput" hidden accept="image/*">
+                <label for="imageInput" class="drop-zone" id="dropZone">
+                    <span>Click or Drag Fridge Photo Here</span>
+                    <img id="preview" src="" alt="Preview" class="hidden">
+                </label>
+                
+                <button id="analyzeBtn" class="btn-primary" disabled>Analyze Ingredients</button>
+            </div>
+
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Chef is thinking...</p>
+            </div>
+
+            <section id="resultContainer" class="recipe-content hidden"></section>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
