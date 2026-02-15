@@ -6,16 +6,23 @@
     --text: #1f2937;
 }
 
+/* NORMAL TEXT -> INTER */
 body { 
-    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    font-family: var(--font-normal); 
     background: var(--bg); 
     color: var(--text);
     margin: 0; 
     padding: 20px; 
 }
 
-/* GitHub Link */
+/* HEADINGS -> BRICOLAGE GROTESQUE */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+/* VIEW CODE -> VICTOR MONO */
 .github-link {
+    font-family: var(--font-github);
     position: fixed;
     top: 20px;
     right: 20px;
@@ -77,6 +84,8 @@ header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #111827; }
 }
 
 .btn-primary { 
+    /* Buttons generally look best matching the normal or heading font */
+    font-family: var(--font-heading);
     width: 100%; 
     margin-top: 1.5rem; 
     padding: 14px; 
@@ -93,7 +102,9 @@ header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #111827; }
 .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
 .btn-primary:disabled { background: #9ca3af; cursor: not-allowed; }
 
+/* AI GENERATED TEXT -> SOURCE CODE PRO */
 .recipe-content { 
+    font-family: var(--font-ai-text);
     background: white; 
     margin-top: 2rem; 
     padding: 2.5rem; 
@@ -102,8 +113,14 @@ header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #111827; }
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Markdown Styling */
-.recipe-content h2 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; }
+/* Ensure AI headings also use Bricolage Grotesque (or remove this to keep them Source Code Pro) */
+.recipe-content h2, .recipe-content h3 { 
+    font-family: var(--font-heading);
+    color: var(--primary); 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px; 
+}
+
 .recipe-content ul { padding-left: 20px; }
 
 .hidden { display: none !important; }
