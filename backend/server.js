@@ -2,7 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
