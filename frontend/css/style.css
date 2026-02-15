@@ -6,6 +6,33 @@
     --text: #1f2937;
 }
 
+.dot-pattern-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1; /* This pushes it to the background behind everything */
+    background-color: var(--bg); /* Light mode background */
+    overflow: hidden;
+    pointer-events: all;
+}
+
+#dot-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dot-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* Fades from clear in the middle to your background color at the edges */
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(243, 244, 246, 0.9) 100%);
+}
+
+
+
+
 /* NORMAL TEXT -> INTER */
 body { 
     font-family: var(--font-normal); 
@@ -47,7 +74,9 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-.app-wrapper { max-width: 800px; margin: 60px auto; }
+.app-wrapper { max-width: 800px; margin: 60px auto;  position: relative; /* Ensure it respects z-index hierarchy */
+    z-index: 10;
+pointer-events: none;}
 
 header { text-align: center; margin-bottom: 2.5rem; }
 
@@ -135,3 +164,12 @@ header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #111827; }
 }
 
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* BUT: We need to make sure buttons and inputs still work! */
+.upload-card, 
+.btn-primary, 
+.github-link, 
+#imageInput, 
+.recipe-content {
+    pointer-events: auto; /* Re-enable clicking for the actual UI elements */
+}
