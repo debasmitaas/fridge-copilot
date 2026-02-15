@@ -1,4 +1,7 @@
 import { initDotPattern } from './dot-pattern.js';
+
+import { initPageAnimations, animateRecipeReveal } from './animations.js';
+
 const BACKEND_BASE = import.meta.env.VITE_BACKEND_URL;
 const API_URL = `${BACKEND_BASE}/api/analyze`;
 
@@ -11,15 +14,9 @@ const resultContainer = document.getElementById('resultContainer');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Run GSAP animations
-    // initPageAnimations();
-    
-    // // 2. Setup button hover
-    // const dropZone = document.getElementById('dropZone');
-    // setupHoverAnimation(dropZone);
-
-    // 3. Start the magical background! <-- NEW
     initDotPattern(); 
+    initDotPattern(); 
+    initPageAnimations(); 
 });
 
 imageInput.onchange = (e) => {
@@ -59,7 +56,8 @@ analyzeBtn.onclick = async () => {
         
         // Parse and Display Markdown
         resultContainer.innerHTML = marked.parse(data.recipe);
-        resultContainer.classList.remove('hidden');
+        // Use the new fluid reveal instead of just removing .hidden
+        animateRecipeReveal(resultContainer);
     } catch (err) {
         console.error(err);
         alert("Chef is offline. Please check if yourbackend is running and try again!");

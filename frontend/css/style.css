@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary: #2563eb;
     --primary-hover: #1d4ed8;
@@ -49,29 +53,41 @@ h1, h2, h3, h4, h5, h6 {
 
 /* VIEW CODE -> VICTOR MONO */
 .github-link {
-    font-family: var(--font-github);
+ font-family: var(--font-github);
     position: fixed;
     top: 20px;
     right: 20px;
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 8px;
-    background: #24292f;
-    color: white;
+    
+    /* FORCE DARK COLORS */
+    background-color: #24292f !important; 
+    color: #ffffff !important;
+    
     padding: 10px 18px;
     border-radius: 30px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    transition: all 0.2s ease;
+    
+    /* Layering */
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    
+    /* Visuals */
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    /* Reset any GSAP leftovers */
+    opacity: 1;
+    visibility: visible;
+    transform: none;
 }
 
 .github-link:hover {
-    background: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+ background-color: #000000 !important;
+    transform: translateY(-2px) !important;
 }
 
 .app-wrapper { max-width: 800px; margin: 60px auto;  position: relative; /* Ensure it respects z-index hierarchy */
