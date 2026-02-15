@@ -1,4 +1,5 @@
-const API_URL = 'https://your-backend-url.onrender.com/api/analyze'; // Update this after deploying backend
+const BACKEND_BASE = import.meta.env.VITE_BACKEND_URL;
+const API_URL = `${BACKEND_BASE}/api/analyze`;
 
 const imageInput = document.getElementById('imageInput');
 const preview = document.getElementById('preview');
