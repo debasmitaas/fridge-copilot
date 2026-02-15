@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fridge Co-Pilot | AI Recipe Generator</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="YOUR_GITHUB_REPO_URL_HERE" target="_blank" class="github-link" title="View on GitHub">
+        <i data-lucide="github"></i>
+        <span>View Code</span>
+    </a>
+
     <div class="app-wrapper">
         <header>
             <h1>Fridge Co-Pilot</h1>
@@ -18,7 +28,7 @@
             <div class="upload-card">
                 <input type="file" id="imageInput" hidden accept="image/*">
                 <label for="imageInput" class="drop-zone" id="dropZone">
-                    <span>Click or Drag Fridge Photo Here</span>
+                    <span id="uploadText">Click or Drag Fridge Photo Here</span>
                     <img id="preview" src="" alt="Preview" class="hidden">
                 </label>
                 
@@ -33,6 +43,10 @@
             <section id="resultContainer" class="recipe-content hidden"></section>
         </main>
     </div>
-<script type="module" src="/js/main.js"></script>
+
+    <script type="module" src="/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
